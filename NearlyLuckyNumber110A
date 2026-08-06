@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String n = sc.next();
+        int count = 0;
+
+        for (int i = 0; i < n.length(); i++) {
+            char ch = n.charAt(i);
+
+            if (ch == '4' || ch == '7') {
+                count++;
+            }
+        }
+
+        String luckyCount = String.valueOf(count);
+
+        boolean isLucky = true;
+
+        if (count == 0) {
+            isLucky = false;
+        } else {
+            for (int i = 0; i < luckyCount.length(); i++) {
+                char ch = luckyCount.charAt(i);
+
+                if (ch != '4' && ch != '7') {
+                    isLucky = false;
+                    break;
+                }
+            }
+        }
+
+        if (isLucky) {
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
+        }
+
+        sc.close();
+    }
+}
